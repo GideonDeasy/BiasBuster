@@ -1,6 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure full viewport height usage */
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Completely hide scrollbars but maintain functionality */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Custom scrollable containers */
+.scrollable {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+/* Show scrollbar only when actively scrolling */
+.scrollable:hover {
+  scrollbar-width: thin;
+}
+
+.scrollable:hover::-webkit-scrollbar {
+  display: block;
+  width: 4px;
+}
+
+.scrollable:hover::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+/* Ensure smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Prevent text selection on interactive elements */
+button, .cursor-pointer {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Ensure proper focus styles */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Prevent layout shift with fonts */
+.font-outfit {
+  font-display: swap;
+}
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -27,7 +109,6 @@ a:hover {
 }
 
 body {
-  margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
